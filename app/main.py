@@ -4,7 +4,7 @@ import requests
 from dotenv import load_dotenv
 
 
-def get_weather() -> any:
+def get_weather() -> None:
     load_dotenv()
     api_key = os.getenv("API_KEY")
 
@@ -23,8 +23,9 @@ def get_weather() -> any:
 
             print(f"Weather in Paris: {temperature}°C, {description}.")
         else:
-            print(f"Error: {weather_data.get("error",
-                            {}).get("message", "Unknown error")}")
+            print(f"Error: {weather_data.get('error', 
+                            {}).get('message', 'Unknown error')}")
+
     except requests.exceptions.RequestException as e:
         print(f"Request error: {e}")
 
